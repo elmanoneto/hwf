@@ -1,5 +1,6 @@
 'use client';
 import { ForecastCard } from '@/components/forecast';
+import ForecastIcon from '@/components/forecast/ForecastIcon';
 import { FORECAST_CONDITIONS } from '@/constants/forecast';
 import {
     Background,
@@ -15,7 +16,7 @@ import {
 export default function WeatherBackground({ condition }: { condition: string }) {
     return (
         <Background condition={condition}>
-            <div className="container mx-auto p-8">
+            <main className="container mx-auto p-8">
                 {condition === FORECAST_CONDITIONS.sunny && <Sun />}
 
                 {condition === FORECAST_CONDITIONS.cloudy && (
@@ -91,12 +92,16 @@ export default function WeatherBackground({ condition }: { condition: string }) 
                     {['Mon', 'Tue', 'Wed', 'Thu'].map((day) => (
                         <ForecastCard.Root key={day}>
                             <ForecastCard.ForecastWeekday day={day} />
+                            <ForecastIcon
+                                condition={FORECAST_CONDITIONS[condition as keyof typeof FORECAST_CONDITIONS]}
+                                size="md"
+                            />
                             <ForecastCard.ForecastTemperature tempature="28°C" />
                             <ForecastCard.ForecastWeather condition="CLOUDY" />
                         </ForecastCard.Root>
                     ))}
                 </ForecastGrid>
-            </div>
+            </main>
         </Background>
     );
 }

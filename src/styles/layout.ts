@@ -3,7 +3,6 @@ import tw from 'tailwind-styled-components';
 import styled from 'styled-components';
 import { cloudAnimation, rainAnimation, snowAnimation, spinSlow } from '@/styles/animations';
 
-// Container principal com cores dinâmicas
 export const Background = tw.div<{ condition: typeof FORECAST_CONDITIONS }>`
     relative
     min-h-screen
@@ -31,7 +30,6 @@ export const Background = tw.div<{ condition: typeof FORECAST_CONDITIONS }>`
   }}
 `;
 
-// Sol animado
 export const Sun = styled(tw.div`
     absolute
     top-20
@@ -46,7 +44,6 @@ export const Sun = styled(tw.div`
     animation: ${spinSlow} 20s linear infinite;
 `;
 
-// Nuvens
 export const CloudWrapper = styled(tw.div`
     sm:absolute
     left-0
@@ -77,7 +74,6 @@ export const Cloud = styled(tw.div`
         90px 5px 0 0 rgba(255, 255, 255, 0.5);
 `;
 
-// Gotas de chuva
 export const RainDrop = styled(tw.div`
     absolute
     w-0.5
@@ -87,7 +83,6 @@ export const RainDrop = styled(tw.div`
     animation: ${rainAnimation} 2s linear infinite;
 `;
 
-// Flocos de neve
 export const SnowFlake = styled(tw.div`
     absolute
     w-2
@@ -99,14 +94,12 @@ export const SnowFlake = styled(tw.div`
     animation: ${snowAnimation} 5s linear infinite;
 `;
 
-// Conteúdo central
 export const Content = tw.div`
     text-center
     z-10
 `;
 
-// Grade de previsão semanal
-export const ForecastGrid = tw.div`
+export const ForecastGrid = tw.section`
     relative
     mt-10
     flex
@@ -115,7 +108,6 @@ export const ForecastGrid = tw.div`
     md:flex-row
 `;
 
-// Card de previsão
 export const ForecastCard = tw.div`
     backdrop-blur-2xl
     bg-white/20
