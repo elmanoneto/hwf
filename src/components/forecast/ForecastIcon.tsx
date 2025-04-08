@@ -26,6 +26,7 @@ export default function ForecastIcon({ condition, size }: ForecastIconProps) {
             alt={condition as string}
             width={sizes[size]}
             height={sizes[size]}
+            priority={true}
         />
     );
 }

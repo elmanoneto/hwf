@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Barlow } from 'next/font/google';
 import './globals.css';
+import Providers from '@/lib/providers';
+import dayjs from 'dayjs';
 
 const fontBarlow = Barlow({
     variable: '--font-barlow',
@@ -13,6 +15,8 @@ export const metadata: Metadata = {
     description: 'A weather forecast app for Hepta',
 };
 
+dayjs.locale('en-us'); // use locale
+
 export default function RootLayout({
     children,
 }: Readonly<{
@@ -20,7 +24,9 @@ export default function RootLayout({
 }>) {
     return (
         <html lang="en" suppressHydrationWarning>
-            <body className={`${fontBarlow.className} antialiased`}>{children}</body>
+            <body className={`${fontBarlow.className} antialiased`}>
+                <Providers>{children}</Providers>
+            </body>
         </html>
     );
 }

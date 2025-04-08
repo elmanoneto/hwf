@@ -3,5 +3,5 @@ type ForecastWeatherProps = {
 };
 
 export default function ForecastWeather({ condition }: ForecastWeatherProps) {
-    return <p className="text-sm">{condition}</p>;
+    return <p className="text-sm uppercase">{condition}</p>;
 }

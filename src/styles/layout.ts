@@ -124,4 +124,5 @@ export const ForecastCard = tw.div`
     items-center
     align-middle
     justify-center
+    min-w-2
 `;

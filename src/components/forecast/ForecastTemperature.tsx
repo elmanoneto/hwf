@@ -3,5 +3,5 @@ type ForecastTemperatureProps = {
 };
 
 export default function ForecastTemperature({ tempature }: ForecastTemperatureProps) {
-    return <h2 className="text-lg">{tempature}</h2>;
+    return <h2 className="text-lg">{tempature}°C</h2>;
 }
