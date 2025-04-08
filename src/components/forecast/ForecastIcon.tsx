@@ -20,5 +20,12 @@ const sizes = {
 } as const;
 
 export default function ForecastIcon({ condition, size }: ForecastIconProps) {
-    return <Image src={FORECAST_VALUES[condition]} alt="test" width={sizes[size]} height={sizes[size]} />;
+    return (
+        <Image
+            src={FORECAST_VALUES[condition]}
+            alt={condition as string}
+            width={sizes[size]}
+            height={sizes[size]}
+        />
+    );
 }

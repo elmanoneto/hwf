@@ -14,8 +14,13 @@ export const Background = tw.div<{ condition: typeof FORECAST_CONDITIONS }>`
     overflow-hidden
     transition-all
     duration-1000
-  ${(p) => {
-      switch (p.condition) {
+
+    ${({ condition }) => {
+        return condition === FORECAST_CONDITIONS.rainy && 'text-white';
+    }}
+    
+  ${({ condition }) => {
+      switch (condition) {
           case 'sunny':
               return 'bg-gradient-to-b from-[#fff7d6] via-[#ffe1b3] to-[#fff7d6]';
           case 'rainy':
@@ -44,7 +49,7 @@ export const Sun = styled(tw.div`
     animation: ${spinSlow} 20s linear infinite;
 `;
 
-export const CloudWrapper = styled(tw.div`
+export const CloudWrapperStyle = styled(tw.div`
     sm:absolute
     left-0
     sm:w-full
@@ -54,7 +59,7 @@ export const CloudWrapper = styled(tw.div`
     sm:left-50
 `)``;
 
-export const Cloud = styled(tw.div`
+export const CloudStyle = styled(tw.div`
     absolute 
     top-10
     left-0
@@ -74,7 +79,7 @@ export const Cloud = styled(tw.div`
         90px 5px 0 0 rgba(255, 255, 255, 0.5);
 `;
 
-export const RainDrop = styled(tw.div`
+export const RainDropStyle = styled(tw.div`
     absolute
     w-0.5
     h-5
@@ -83,7 +88,7 @@ export const RainDrop = styled(tw.div`
     animation: ${rainAnimation} 2s linear infinite;
 `;
 
-export const SnowFlake = styled(tw.div`
+export const SnowFlakeStyle = styled(tw.div`
     absolute
     w-2
     h-2
@@ -99,7 +104,7 @@ export const Content = tw.div`
     z-10
 `;
 
-export const ForecastGrid = tw.section`
+export const ForecastWrapperStyle = tw.section`
     relative
     mt-10
     flex
@@ -109,8 +114,8 @@ export const ForecastGrid = tw.section`
 `;
 
 export const ForecastCard = tw.div`
-    backdrop-blur-2xl
-    bg-white/20
+    backdrop-blur-sm
+    bg-white/5
     shadow-sm
     p-8
     w-full
