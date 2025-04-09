@@ -29,6 +29,10 @@ const forecastAnimation = {
     [FORECAST_CONDITIONS.snowy]: <Snowflake />,
 };
 
+dayjs().locale('pt');
+
+console.log(dayjs().locale());
+
 export default function WeatherApp({ initialCoords }: WeatherAppProps) {
     const { data: location } = useBrowserLocation();
 
