@@ -1,10 +1,11 @@
 import { FORECAST_CONDITIONS } from '@/constants/forecast';
 import Image from 'next/image';
+import { ImgHTMLAttributes } from 'react';
 
 type ForecastIconProps = {
     condition: keyof typeof FORECAST_VALUES;
     size: 'sm' | 'md' | 'lg';
-};
+} & ImgHTMLAttributes<HTMLImageElement>;
 
 const FORECAST_VALUES = {
     [FORECAST_CONDITIONS.sunny]: '/sunny.svg',
@@ -26,7 +27,7 @@ export default function ForecastIcon({ condition, size }: ForecastIconProps) {
             alt={condition as string}
             width={sizes[size]}
             height={sizes[size]}
-            priority={true}
+            priority
         />
     );
 }

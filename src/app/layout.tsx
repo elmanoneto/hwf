@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Barlow } from 'next/font/google';
 import './globals.css';
 import Providers from '@/lib/providers';
+import { NuqsAdapter } from 'nuqs/adapters/next';
 
 const fontBarlow = Barlow({
     variable: '--font-barlow',
@@ -22,7 +23,9 @@ export default function RootLayout({
     return (
         <html lang="en" suppressHydrationWarning>
             <body className={`${fontBarlow.className} antialiased`}>
-                <Providers>{children}</Providers>
+                <Providers>
+                    <NuqsAdapter>{children}</NuqsAdapter>
+                </Providers>
             </body>
         </html>
     );

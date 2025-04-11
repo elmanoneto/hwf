@@ -2,8 +2,14 @@ import { formatWeatherDescription } from '@/helpers/formatWeatherDescription';
 
 export async function getWeather(latitude: number, longitude: number) {
     const response = await fetch(
-        `http://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=510a0c10e7094bc981615941df2e6788`
+        `http://api.weatherbit.io/v2.0/forecast/daily?lat=${latitude}&lon=${longitude}&key=${process.env.NEXT_PUBLIC_WEATHERBIT_KEY}`,
+        {
+            headers: {
+                'Cache-Control': 'max-age=3600', // Cache for 1 hour
+            },
+        }
     );
+
     const dataResponse = await response.json();
 
     const { city_name, data } = dataResponse;

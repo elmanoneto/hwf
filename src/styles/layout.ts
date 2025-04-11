@@ -19,20 +19,20 @@ export const Background = tw.div<{ condition: typeof FORECAST_CONDITIONS }>`
         return condition === FORECAST_CONDITIONS.rainy && 'text-white';
     }}
     
-  ${({ condition }) => {
-      switch (condition) {
-          case 'sunny':
-              return 'bg-gradient-to-b from-[#fff7d6] via-[#ffe1b3] to-[#fff7d6]';
-          case 'rainy':
-              return 'bg-gradient-to-b from-[#374151] via-[#111827] to-black';
-          case 'cloudy':
-              return 'bg-gradient-to-b from-[#e5e7eb] via-[#d1d5db] to-[#9ca3af]';
-          case 'snowy':
-              return 'bg-gradient-to-b from-[#bfdbfe] via-[#dbeafe] to-white';
-          default:
-              return 'bg-gradient-to-b from-white to-white';
-      }
-  }}
+    ${({ condition }) => {
+        switch (condition) {
+            case 'sunny':
+                return 'bg-gradient-to-b from-[#fff7d6] via-[#ffe1b3] to-[#fff7d6]';
+            case 'rainy':
+                return 'bg-gradient-to-b from-[#374151] via-[#111827] to-black';
+            case 'cloudy':
+                return 'bg-gradient-to-b from-[#e5e7eb] via-[#d1d5db] to-[#9ca3af]';
+            case 'snowy':
+                return 'bg-gradient-to-b from-[#bfdbfe] via-[#dbeafe] to-white';
+            default:
+                return 'bg-gradient-to-b from-white to-white';
+        }
+    }}
 `;
 
 export const Sun = styled(tw.div`
@@ -125,4 +125,17 @@ export const ForecastCard = tw.div`
     align-middle
     justify-center
     min-w-2
+`;
+
+export const StyledInput = tw.input`
+    bg-zinc/30 
+    w-full 
+    rounded-xl 
+    bg-white/40 
+    p-3 
+    text-black
+    placeholder-black
+    focus:ring-2 
+    focus:ring-white 
+    focus:outline-none
 `;
